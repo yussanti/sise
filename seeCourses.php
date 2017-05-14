@@ -35,7 +35,9 @@ if($_SESSION['level']!="Administrator"){
                         <th style="width: 120px;" class="text-center">ID Courses</th>
                         <th class="text-center">Courses</th>
                         <th class="text-center">Lecturer</th>
-                        <th class="text-center" style="width: 75px;"><i class="gi gi-cogwheel"></i></th>
+                        
+                        <th class="text-center" style="width: 100px;"><i class="gi gi-cogwheel"></i></th>
+
                     </tr>
                 </thead>
                 <tbody>
@@ -50,8 +52,8 @@ if($_SESSION['level']!="Administrator"){
                         
                         <td><center><?php echo $baris1['courses'] ;?></center></td>
                         <td><center><?php echo $baris1['name'] ;?></center></td>
-                        
                         <td class="text-center">
+                            <a href="addParticipant.php?idmk=<?php echo $baris1['idmk']; ?>" data-toggle="tooltip" title="add Participant" class="btn btn-effect-ripple btn-xs btn-info"><i class="gi gi-user_add"></i></a>
                             <a href="editCourses.php?idmk=<?php echo $baris1['idmk']; ?>" data-toggle="tooltip" title="Edit Courses" class="btn btn-effect-ripple btn-xs btn-success"><i class="fa fa-pencil"></i></a>
                             <a href="deleteCourses.php?idmk=<?php echo $baris1['idmk']; ?>" data-toggle="tooltip" title="Delete Courses" class="btn btn-effect-ripple btn-xs btn-danger"><i class="fa fa-times"></i></a>
                         </td>

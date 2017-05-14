@@ -14,10 +14,12 @@ if($_SESSION['level']!="Administrator"){
 
 }?>
 <?php
-	$username=$_POST["username"];
-	$courses=$_POST["courses"];
-	$idmk=$_GET['idmk'];
 	
+
+	$idmk=$_GET['idmk'];
+	$courses=$_POST["courses"];
+	
+	$username=$_POST["username"];
 	
 	
 	
