@@ -37,7 +37,7 @@ if($_SESSION['level']!="Administrator"){
                         <th class="text-center">Name</th>
                         <th style="width: 120px;" class="text-center">Student ID</th>
                         <th class="text-center">Major</th>
-                        <th class="text-center" style="width: 75px;"><i class="fa fa-flash"></i></th>
+                        <th class="text-center" style="width: 75px;"><i class="gi gi-cogwheel"></i></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -48,15 +48,15 @@ if($_SESSION['level']!="Administrator"){
                     while($baris1=mysql_fetch_array($query1)) {
                     ?> 
                     <tr>
-                        <td><?php echo $baris1['username'] ;?></td>
-                        <td><?php echo $baris1['email'] ;?></td>
-                        <td><?php echo $baris1['name'] ;?></td>
-                        <td><?php echo $baris1['npm'] ;?></td>
-                        <td><?php echo $baris1['major'] ;?></td>
+                        <td><center><?php echo $baris1['username'] ;?></td></center>
+                        <td><center><?php echo $baris1['email'] ;?></td></center>
+                        <td><center><?php echo $baris1['name'] ;?></td></center>
+                        <td><center><?php echo $baris1['npm'] ;?></td></center>
+                        <td><center><?php echo $baris1['major'] ;?></td></center>
                         
                         <td class="text-center">
-                            <a href="javascript:void(0)" data-toggle="tooltip" title="Edit User" class="btn btn-effect-ripple btn-xs btn-success"><i class="fa fa-pencil"></i></a>
-                            <a href="javascript:void(0)" data-toggle="tooltip" title="Delete User" class="btn btn-effect-ripple btn-xs btn-danger"><i class="fa fa-times"></i></a>
+                            <a href="editAccount.php?usr=<?php echo $baris1['username']; ?>" data-toggle="tooltip" title="Edit Account" class="btn btn-effect-ripple btn-xs btn-success"><i class="fa fa-pencil"></i></a>
+                            <a href="deleteAccount.php?usr=<?php echo $baris1['username']; ?>" data-toggle="tooltip" title="Delete Account" class="btn btn-effect-ripple btn-xs btn-danger"><i class="fa fa-times"></i></a>
                         </td>
                     </tr>
                     <?php } ?>
