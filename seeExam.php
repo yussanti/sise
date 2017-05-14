@@ -38,6 +38,8 @@ if($_SESSION['level']!="Dosen"){
                         <th class="text-center">Duration</th>
                         <th class="text-center">Status</th>
                         <th class="text-center" style="width: 75px;">Details</th>
+                    
+                        <th class="text-center" style="width: 75px;">Grades</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -47,11 +49,13 @@ if($_SESSION['level']!="Dosen"){
 
                         if (isset($idmk)) {
                             $idmk = $_GET['idmk'];
+                            $username=$_SESSION['username'];
+                            $query1 = mysql_query("SELECT * FROM tb_exam where username='$username' AND idmk='$idmk'");
                         } else {
-                            $idmk="";
+                            $username=$_SESSION['username'];
+                            $query1 = mysql_query("SELECT * FROM tb_exam where username='$username'");
                         }
-                    $username=$_SESSION['username'];
-                    $query1 = mysql_query("SELECT * FROM tb_exam where username='$username' AND idmk='$idmk'");
+                    
                    
                     $jumlah = mysql_num_rows($query1);
                     while($baris1=mysql_fetch_array($query1)) {
@@ -62,9 +66,16 @@ if($_SESSION['level']!="Dosen"){
                         <td><center><?php echo $baris1['passexam'] ;?></center></td>
                         <td><center><?php echo $baris1['duration'] ;?></center></td>
                         <td><center><?php echo $baris1['status'] ;?></center></td>
+                        <td class="text-center">
+                           <a href="addExamQ.php?idmk=<?php echo $baris1['idmk'];?>&idtest=<?php echo $baris1['idtest'];?>" data-toggle="tooltip" title="add Question" class="btn btn-effect-ripple btn-xs btn-success"><i class="fa fa-pencil"></i></a>
+                           <a href="addExamQ.php?idmk=<?php echo $baris1['idmk'];?>&idtest=<?php echo $baris1['idtest'];?>" data-toggle="tooltip" title="add Question" class="btn btn-effect-ripple btn-xs btn-success"><i class="fa fa-pencil"></i></a>
+                           
+                        </td>
                         
                         <td class="text-center">
-                           <a href="addExamQ.php?idmk=<?php echo $baris1['idmk'];?>&idtest=<?php echo $baris1['idtest'];?>" data-toggle="tooltip" title="Edit Courses" class="btn btn-effect-ripple btn-xs btn-success"><i class="fa fa-pencil"></i></a>
+                           <a href="addExamQ.php?idmk=<?php echo $baris1['idmk'];?>&idtest=<?php echo $baris1['idtest'];?>" data-toggle="tooltip" title="add Question" class="btn btn-effect-ripple btn-xs btn-success"><i class="fa fa-pencil"></i></a>
+                       
+                           <a href="seeGradeLect.php?idmk=<?php echo $baris1['idmk'];?>&idtest=<?php echo $baris1['idtest'];?>" data-toggle="tooltip" title="Grading" class="btn btn-effect-ripple btn-xs btn-success"><i class="fa fa-pencil"></i></a>
                         </td>
                     </tr>
                     <?php } ?>

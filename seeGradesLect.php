@@ -45,17 +45,21 @@ if($_SESSION['level']!="Dosen"){
 
                         <?php    
                         $idmk=$_GET['idmk'];
+                         $idtest=$_GET['idtest'];
                         $username=$_SESSION['username'];
-                        $query1 = mysql_query("SELECT tb_peserta.idmk, tb_courses.courses, tb_peserta.username FROM tb_peserta INNER JOIN tb_courses ON tb_peserta.idmk=tb_peserta.idmk WHERE tb_peserta.idmk='$idmk' AND tb_courses.username='$username'");
+                        $query1 = mysql_query("SELECT * FROM tb_courses JOIN tb_exam ON tb_courses.idmk=tb_exam.idmk JOIN tb_totalnilai ON tb_courses.idmk = tb_totalnilai.idmk WHERE tb_totalnilai.idmk ='$idmk' AND tb_totalnilai.idtest = '$idtest'");
     
                      $jumlah = mysql_num_rows($query1);
                     while($baris1=mysql_fetch_array($query1)) {
                     ?> 
                     <tr>
-                        <td><center><?php echo $baris1['idmk'] ;?></center></td>
                         
                         <td><center><?php echo $baris1['courses'] ;?></center></td>
+                        <td><center><?php echo $baris1['exam'] ;?></center></td>
+                        
                         <td><center><?php echo $baris1['username'] ;?></center></td>
+                         <td><center><?php echo $baris1['total_nilai'] ;?></center></td>
+                       
                         <td class="text-center">
                             <a href="addParticipant.php?idmk=<?php echo $idmk; ?>" data-toggle="tooltip" title="add another participant" class="btn btn-effect-ripple btn-xs btn-info"><i class="gi gi-user_add"></i></a>
                             <a href="deleteParticipant.php?usr=<?php echo $baris1['username']; ?>&idmk=<?php echo $idmk;?>" data-toggle="tooltip" title="Delete participant" class="btn btn-effect-ripple btn-xs btn-danger"><i class="fa fa-times"></i></a>
