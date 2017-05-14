@@ -5,13 +5,15 @@ include 'inc/connection.php'
 <?php
 //cek apakah user sudah login
 if(!isset($_SESSION['username'])){
-    die("Anda belum login");//
-} else if(!isset($_SESSION['username'])){
-    die("Anda belum login");
-} else if(!isset($_SESSION['username'])){
-    die("Anda belum login");
-}?>
-<?php include 'inc/configAdmin.php'; $template['header_link'] = 'WELCOME'; ?>
+    die("index.php");
+}
+
+//cek level user
+if($_SESSION['level']!="Dosen"){
+    header("index.php");
+}
+?>
+<?php include 'inc/configDosen.php'; $template['header_link'] = 'WELCOME'; ?>
 <?php include 'inc/template_start.php'; ?>
 <?php include 'inc/page_head.php'; ?>
 

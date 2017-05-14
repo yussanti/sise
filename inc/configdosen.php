@@ -96,11 +96,11 @@ $primary_nav = array(
         'sub'   => array(
             array(
                 'name'  => 'See Manual',
-                'url'   => 'page_comp_todo.php',
+                'url'   => 'faqDosen.php',
             ),
             array(
                 'name'  => 'Contact Us',
-                'url'   => 'page_comp_gallery.php',
+                'url'   => 'contactus.php',
             )
         )
     )

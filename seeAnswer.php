@@ -37,15 +37,14 @@ if($_SESSION['level']!="Dosen"){
                         <th style="width: 300px;" class="text-center">Question</th>
                         <th class="text-center">Answer</th>
                         <th style="width: 120px;" class="text-center">Score</th>
-                    
-                    </tr>
+                            </tr>
                 </thead>
                 <tbody>
                    <tr>
 
                         <?php 
                     $usr = $_GET['usr'];
-                    $query1 = mysql_query("SELECT * FROM tb_mahasiswa  JOIN tb_soaljawab ON tb_mahasiswa.idsoal=tb_soaljawab.idsoal  JOIN tb_nilai ON tb_mahasiswa.idsoal=tb_nilai.idsoal where tb_mahasiswa.nama='$usr'");
+                    $query1 = mysql_query("SELECT * FROM tb_mahasiswa  JOIN tb_soaljawab ON tb_mahasiswa.idsoal=tb_soaljawab.idsoal  JOIN tb_nilai ON tb_mahasiswa.idjawaban=tb_nilai.idjawaban where tb_mahasiswa.nama='$usr'");
     
                     $jumlah = mysql_num_rows($query1);
                     while($baris1=mysql_fetch_array($query1)) {
@@ -55,7 +54,8 @@ if($_SESSION['level']!="Dosen"){
                         
                         <td><center><?php echo $baris1['soal'] ;?></center></td>
                         <td><center><?php echo $baris1['jawaban'] ;?></center></td>
-                        <td><center><?php echo $baris1['nilai'] ;?></center></td>
+                        <td><center><?php echo $baris1['nilai']; ?>
+                        &nbsp;&nbsp;<a href="addParticipantLect.php?idmk=<?php echo $baris1['idmk']; ?>" data-toggle="tooltip" title="assign new score" class="btn btn-effect-ripple btn-xs btn-danger"><i class="fa fa-pencil">   </i></a></center></td>
                                 
                 
                     </tr>
