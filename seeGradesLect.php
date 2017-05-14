@@ -26,17 +26,18 @@ if($_SESSION['level']!="Dosen"){
     <!-- Datatables is initialized in js/pages/uiTables.js -->
     <div class="block full">
         <div class="block-title">
-            <h2>View Courses</h2>
+            <h2>Review Grades</h2>
         </div>
         <div class="table-responsive">
             <table id="example-datatable" class="table table-striped table-bordered table-vcenter">
                 <thead>
                     <tr>
-                        <th style="width: 120px;" class="text-center">ID Courses</th>
                         <th class="text-center">Courses</th>
+                        <th class="text-center">Exam</th>
                         <th class="text-center">Participant</th>
+                        <th class="text-center">Score</th>
                         
-                        <th class="text-center" style="width: 100px;"><i class="gi gi-cogwheel"></i></th>
+                        <th class="text-center" >Review Answer</th>
 
                     </tr>
                 </thead>
@@ -44,10 +45,16 @@ if($_SESSION['level']!="Dosen"){
                    <tr>
 
                         <?php    
-                        $idmk=$_GET['idmk'];
-                         $idtest=$_GET['idtest'];
-                        $username=$_SESSION['username'];
-                        $query1 = mysql_query("SELECT * FROM tb_courses JOIN tb_exam ON tb_courses.idmk=tb_exam.idmk JOIN tb_totalnilai ON tb_courses.idmk = tb_totalnilai.idmk WHERE tb_totalnilai.idmk ='$idmk' AND tb_totalnilai.idtest = '$idtest'");
+                         if (isset($idmk)) {
+                            $idmk = $_GET['idmk'];
+                            $idmk=$_GET['idmk'];
+                            $idtest=$_GET['idtest'];
+                            $username=$_SESSION['username'];
+                            $query1 = mysql_query("SELECT * FROM tb_courses JOIN tb_exam ON tb_courses.idmk=tb_exam.idmk JOIN tb_totalnilai ON tb_courses.idmk = tb_totalnilai.idmk WHERE tb_totalnilai.idmk ='$idmk' AND tb_totalnilai.idtest = '$idtest'");
+                        } else {
+                            $query1 = mysql_query("SELECT * FROM tb_courses JOIN tb_exam ON tb_courses.idmk=tb_exam.idmk JOIN tb_totalnilai ON tb_courses.idmk = tb_totalnilai.idmk");
+                        }
+                        
     
                      $jumlah = mysql_num_rows($query1);
                     while($baris1=mysql_fetch_array($query1)) {
@@ -71,7 +78,7 @@ if($_SESSION['level']!="Dosen"){
                 </tbody>
               
             </table>
-             <center><a href="addParticipant.php?idmk=<?php echo $idmk; ?>"><button type="submit" class="btn btn-effect-ripple btn-primary" name="submit" id="submit">add Participant</button></a></center>
+             
         </div>
     </div>
     <!-- END Datatables Block -->        

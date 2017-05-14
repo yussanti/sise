@@ -51,7 +51,7 @@ if($_SESSION['level']!="Dosen"){
                         <td><center><?php echo $baris1['idmk'] ;?></center></td>
                         
                         <td><center><?php echo $baris1['idtest'] ;?></center></td>
-                        <td><center><?php echo $baris1['totalnilai'] ;?></center></td>
+                        <td><center><?php echo $baris1['total_nilai'] ;?></center></td>
                     </tr>
                     <?php } ?>
                    

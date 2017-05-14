@@ -84,7 +84,7 @@ $primary_nav = array(
     ),
     array(
         'name'  => 'Review Grades',
-        'url'   => 'seeScoreLect.php',
+        'url'   => 'seeGradesLect.php',
         'icon'  => 'gi gi-compass'
     ), 
     array(

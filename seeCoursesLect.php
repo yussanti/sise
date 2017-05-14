@@ -53,14 +53,18 @@ if($_SESSION['level']!="Dosen"){
                         <td><center><?php echo $baris1['idmk'] ;?></center></td>
                         
                         <td><center><?php echo $baris1['courses'] ;?></center></td>
-                        <td><center><a href="seeParticipantLect.php?idmk=<?php echo $baris1['idmk']; ?>"><button type="submit" class="btn btn-effect-ripple btn-primary" name="submit" id="submit">View</button></a></center></td>
-                        <td><center><a href="seeExam.php?idmk=<?php echo $baris1['idmk']; ?>"><button type="submit" class="btn btn-effect-ripple btn-primary" name="submit" id="submit">View</button></a></center></td>
+                        <td class="text-center">
+                            <a href="seeParticipantLect.php?idmk=<?php echo $baris1['idmk']; ?>" data-toggle="tooltip" title="see participants" class="btn btn-effect-ripple btn-xs btn-info"><i class="gi gi-user"></i></a>
+                            <a href="addParticipantLect.php?idmk=<?php echo $baris1['idmk']; ?>" data-toggle="tooltip" title="add participants" class="btn btn-effect-ripple btn-xs btn-danger"><i class="fa fa-pencil"></i></a>
+                        </td>
+                        <td><center><a href="seeExam.php?idmk=<?php echo $baris1['idmk']; ?>"><button type="submit" class="btn btn-effect-ripple btn-info" name="submit" id="submit">View</button></a></center></td>
                     </tr>
                     <?php } ?>
                    
                 </tbody>
               
             </table>
+            
         </div>
     </div>
     <!-- END Datatables Block -->        

@@ -26,7 +26,7 @@ if($_SESSION['level']!="Dosen"){
     <!-- Datatables is initialized in js/pages/uiTables.js -->
     <div class="block full">
         <div class="block-title">
-            <h2>View Courses</h2>
+            <h2>View Participants</h2>
         </div>
         <div class="table-responsive">
             <table id="example-datatable" class="table table-striped table-bordered table-vcenter">
@@ -45,8 +45,8 @@ if($_SESSION['level']!="Dosen"){
 
                         <?php    
                         $idmk=$_GET['idmk'];
-                        $username=$_SESSION['username'];
-                        $query1 = mysql_query("SELECT tb_peserta.idmk, tb_courses.courses, tb_peserta.username FROM tb_peserta INNER JOIN tb_courses ON tb_peserta.idmk=tb_peserta.idmk WHERE tb_peserta.idmk='$idmk' AND tb_courses.username='$username'");
+                     
+                        $query1 = mysql_query("SELECT tb_peserta.idmk, tb_courses.courses, tb_peserta.username FROM tb_peserta INNER JOIN tb_courses ON tb_peserta.idmk=tb_peserta.idmk WHERE tb_peserta.idmk='$idmk'");
     
                      $jumlah = mysql_num_rows($query1);
                     while($baris1=mysql_fetch_array($query1)) {

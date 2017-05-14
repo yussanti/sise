@@ -37,7 +37,7 @@ if($_SESSION['level']!="Dosen"){
                         <th class="text-center">Password</th>
                         <th class="text-center">Duration</th>
                         <th class="text-center">Status</th>
-                        <th class="text-center" style="width: 75px;">Details</th>
+                        <th class="text-center" style="width: 75px;">Question</th>
                     
                         <th class="text-center" style="width: 75px;">Grades</th>
                     </tr>
@@ -67,16 +67,12 @@ if($_SESSION['level']!="Dosen"){
                         <td><center><?php echo $baris1['duration'] ;?></center></td>
                         <td><center><?php echo $baris1['status'] ;?></center></td>
                         <td class="text-center">
-                           <a href="addExamQ.php?idmk=<?php echo $baris1['idmk'];?>&idtest=<?php echo $baris1['idtest'];?>" data-toggle="tooltip" title="add Question" class="btn btn-effect-ripple btn-xs btn-success"><i class="fa fa-pencil"></i></a>
-                           <a href="addExamQ.php?idmk=<?php echo $baris1['idmk'];?>&idtest=<?php echo $baris1['idtest'];?>" data-toggle="tooltip" title="add Question" class="btn btn-effect-ripple btn-xs btn-success"><i class="fa fa-pencil"></i></a>
+                           <a href="addExamQ.php?idmk=<?php echo $baris1['idmk'];?>&idtest=<?php echo $baris1['idtest'];?>" data-toggle="tooltip" title="see question" class="btn btn-effect-ripple btn-xs btn-primary"><i class="hi hi-tasks"></i></a>
+                           <a href="addExamQ.php?idmk=<?php echo $baris1['idmk'];?>&idtest=<?php echo $baris1['idtest'];?>" data-toggle="tooltip" title="add question" class="btn btn-effect-ripple btn-xs btn-success"><i class="fa fa-pencil"></i></a>
                            
                         </td>
+                        <td><center><a href="seeGradesLect.php?idmk=<?php echo $baris1['idmk'];?>&idtest=<?php echo $baris1['idtest'];?>"><button type="submit" class="btn btn-effect-ripple btn-info" name="submit" id="submit">View</button></a></center></td>
                         
-                        <td class="text-center">
-                           <a href="addExamQ.php?idmk=<?php echo $baris1['idmk'];?>&idtest=<?php echo $baris1['idtest'];?>" data-toggle="tooltip" title="add Question" class="btn btn-effect-ripple btn-xs btn-success"><i class="fa fa-pencil"></i></a>
-                       
-                           <a href="seeGradeLect.php?idmk=<?php echo $baris1['idmk'];?>&idtest=<?php echo $baris1['idtest'];?>" data-toggle="tooltip" title="Grading" class="btn btn-effect-ripple btn-xs btn-success"><i class="fa fa-pencil"></i></a>
-                        </td>
                     </tr>
                     <?php } ?>
                    
