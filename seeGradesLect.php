@@ -67,9 +67,8 @@ if($_SESSION['level']!="Dosen"){
                         <td><center><?php echo $baris1['username'] ;?></center></td>
                          <td><center><?php echo $baris1['total_nilai'] ;?></center></td>
                        
-                        <td class="text-center">
-                            <a href="addParticipant.php?idmk=<?php echo $idmk; ?>" data-toggle="tooltip" title="add another participant" class="btn btn-effect-ripple btn-xs btn-info"><i class="gi gi-user_add"></i></a>
-                            <a href="deleteParticipant.php?usr=<?php echo $baris1['username']; ?>&idmk=<?php echo $idmk;?>" data-toggle="tooltip" title="Delete participant" class="btn btn-effect-ripple btn-xs btn-danger"><i class="fa fa-times"></i></a>
+                        
+                            <td> <center><a href="seeAnswer.php?usr=<?php echo $baris1['username']; ?>"><button type="submit" class="btn btn-effect-ripple btn-primary" name="submit" id="submit">Review</button></a></center></td>
                         </td>
                     </tr>
 

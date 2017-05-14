@@ -123,14 +123,14 @@ $tambahtext = @$_POST['submit'];
                  
 
 
-            $query2 = mysql_query("SELECT  idsoal,nama,npm, jawaban from tb_mahasiswa where idsoal = '$idsoal' and idmk='$idmk' and idtest='$idtest' and nama='$username'");
+            $query2 = mysql_query("SELECT  * from tb_mahasiswa where idsoal = '$idsoal' and idmk='$idmk' and idtest='$idtest' and nama='$username'");
             $exists2 = mysql_num_rows($query2);
                 if($exists2 > 0) //IF there are no returning rows or no existing username
                 {
                    while($row2 = mysql_fetch_assoc($query2)) // display all rows from query
                    {
                     $output2=$row2["jawaban"];
-
+                    $idjawaban=$row2["idjawaban"];
                      //stemming
                     $kalimat2   = $stemmer->stem($output2);
                     
@@ -169,7 +169,7 @@ $tambahtext = @$_POST['submit'];
                     $w->process();
                     $nilai = $w->GetJaccardCoefficient();
                     
-                    $query4 = mysql_query("insert into tb_nilai (idmk, idtest, username, idsoal, nilai) values ('$idmk','$idtest','$username','$idsoal','$nilai')");
+                    $query4 = mysql_query("insert into tb_nilai (idmk, idtest, username, idsoal, idjawaban, nilai) values ('$idmk','$idtest','$username','$idsoal','$idjawaban','$nilai')");
                     
                     }?>
                     <script type="text/javascript">
