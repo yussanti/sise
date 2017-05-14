@@ -109,11 +109,7 @@ $primary_nav = array(
         'sub'   => array(
             array(
                 'name'  => 'FAQ',
-                'url'   => 'faq.php'
-            ),
-            array(
-                'name'  => 'Contact Us',
-                'url'   => 'contactus.php'
+                'url'   => 'faqAdm.php'
             )
         )
     )
