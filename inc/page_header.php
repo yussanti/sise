@@ -63,7 +63,7 @@ if(!isset($_SESSION['username'])){
     <ul class="nav navbar-nav-custom pull-right">
        
         
-
+<?php $username = $_SESSION['username'];?>
         <!-- User Dropdown -->
         <li class="dropdown">
             <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">
@@ -75,17 +75,12 @@ if(!isset($_SESSION['username'])){
                 </li>
                 
                 <li>
-                    <a href="page_app_social.php">
+                    <a href="editAccount.php?usr=<?php echo $username ?>">
                         <i class="fa fa-pencil-square fa-fw pull-right"></i>
                         Profile
                     </a>
                 </li>
-                <li>
-                    <a href="javascript:void(0)" onclick="App.sidebar('toggle-sidebar-alt');">
-                        <i class="gi gi-settings fa-fw pull-right"></i>
-                        Settings
-                    </a>
-                </li>
+                
                 
                 <li class="divider"><li>
                 
