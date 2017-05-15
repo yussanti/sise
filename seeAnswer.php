@@ -29,9 +29,22 @@ if($_SESSION['level']!="Dosen"){
         <div class="block-title">
             <h2>Answer List</h2>
         </div>
+
         <div class="table-responsive">
             <table id="example-datatable" class="table table-striped table-bordered table-vcenter">
                 <thead>
+                  <?php 
+                    $usr = $_GET['usr'];
+                    $query2 = mysql_query("SELECT * FROM tb_totalnilai where username='$usr'");
+                     while($baris2=mysql_fetch_array($query2)) {
+                    ?>
+                 <div class="col-sm-6 col-lg-3">
+                <div class="alert alert-info alert-dismissable">
+                    <h5><Strong><CENTER>INFORMATION</h5></CENTER></Strong>
+                    <p><center>Name : <?php echo $usr ?></center>
+                    <center>Total Score : <?php echo $baris2['total_nilai'] ?></center></p>
+                </div>
+                    <?php }?>
                     <tr>
                         <th style="width: 120px;" class="text-center">ID</th>
                         <th style="width: 300px;" class="text-center">Question</th>
@@ -55,7 +68,7 @@ if($_SESSION['level']!="Dosen"){
                         <td><center><?php echo $baris1['soal'] ;?></center></td>
                         <td><center><?php echo $baris1['jawaban'] ;?></center></td>
                         <td><center><?php echo $baris1['nilai']; ?>
-                        &nbsp;&nbsp;<a href="editGrades.php?idmk=<?php echo $baris1['idmk']; ?>&usr=<?php echo $usr; ?>&idtest=<?php echo $baris1['idtest']; ?>" data-toggle="tooltip" title="assign new score" class="btn btn-effect-ripple btn-xs btn-danger"><i class="fa fa-pencil">   </i></a></center></td>
+                        &nbsp;&nbsp;<a href="editGrades.php?idjawaban=<?php echo $baris1['idjawaban']; ?>&usr=<?php echo $usr; ?>" data-toggle="tooltip" title="assign new score" class="btn btn-effect-ripple btn-xs btn-danger"><i class="fa fa-pencil">   </i></a></center></td>
                                 
                 
                     </tr>
