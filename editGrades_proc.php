@@ -23,14 +23,9 @@ if($_SESSION['level']!="Dosen"){
 	$idjawaban=$_POST["idjawaban"];
 	$nilai=$_POST["nilai"];
 	
-	$query1 = mysql_query("SELECT * FROM tb_nilai where idmk='$idmk' AND idtest='$idtest' AND username
-		='$usr'");
-    $jumlah = mysql_num_rows($query1);
-    while($baris1=mysql_fetch_array($query1)) {
-	
 		mysql_query("UPDATE tb_nilai SET idmk='$idmk', idtest='$idtest', username ='$usr', idsoal ='$idsoal',idjawaban ='$idjawaban',nilai ='$nilai' WHERE username='$usr' ");
 		
-}
+
 			header ("location:seeAnswer.php?usr=$usr");
 	
 ?>

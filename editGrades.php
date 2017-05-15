@@ -47,12 +47,14 @@ if($_SESSION['level']!="Dosen"){
                     $idmk = $_GET['idmk'];
                     $idtest = $_GET['idtest'];
                     $query1 = mysql_query("SELECT * FROM tb_mahasiswa  JOIN tb_soaljawab ON tb_mahasiswa.idsoal=tb_soaljawab.idsoal  JOIN tb_nilai ON tb_mahasiswa.idjawaban=tb_nilai.idjawaban where tb_mahasiswa.nama='$usr'");
-    
+                    ?>
+                    <form action="editGrades_proc.php?idmk=<?php echo $baris1['idmk']; ?>&usr=<?php echo $usr; ?>&idtest=<?php echo $baris1['idtest']; ?>&idsoal=<?php echo $idsoal; ?>&idjawaban=<?php echo $idjawaban; ?>" method="post" enctype="multipart/form-data" class="form-horizontal form-bordered">
+                    <?php
                     $jumlah = mysql_num_rows($query1);
                     while($baris1=mysql_fetch_array($query1)) {
                     ?> 
                     <tr>
-                        <form action="editGrades_proc.php?idmk=<?php echo $baris1['idmk']; ?>&usr=<?php echo $usr; ?>&idtest=<?php echo $baris1['idtest']; ?>" method="post" enctype="multipart/form-data" class="form-horizontal form-bordered">
+                        
                         <input type="hidden" id="idtest" name="idtest" class="form-control" value="<?php echo $baris1['idtest']; ?>" >
                         <input type="hidden" id="idjawaban" name="idjawaban" class="form-control" value="<?php echo $baris1['idjawaban']; ?>" >
                          <td><center><input type="text" id="idsoal" name="idsoal" class="form-control" value="<?php echo $baris1['idsoal']; ?>" disabled>
