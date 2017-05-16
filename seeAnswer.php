@@ -40,11 +40,17 @@ if($_SESSION['level']!="Dosen"){
                     ?>
                  <div class="col-sm-6 col-lg-3">
                 <div class="alert alert-info alert-dismissable">
-                    <h5><Strong><CENTER>INFORMATION</h5></CENTER></Strong>
-                    <p><center>Name : <?php echo $usr ?></center>
-                    <center>Total Score : <?php echo $baris2['total_nilai'] ?></center></p>
+                    <p>Name : <?php echo $usr ?></p>
+                    <p>Total Score : <?php echo $baris2['total_nilai'] ?></p>
+
                 </div>
                     <?php }?>
+                     <tbody>
+                   <tr>
+
+                       
+                  
+                </tbody>
                     <tr>
                         <th style="width: 120px;" class="text-center">ID</th>
                         <th style="width: 300px;" class="text-center">Question</th>
