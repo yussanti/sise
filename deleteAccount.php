@@ -17,6 +17,17 @@ if($_SESSION['level']!="Administrator"){
 <?php
 
 	$usr=$_GET['usr'];
+	 $role = @$_POST['q'];
+	
 	mysql_query("DELETE from tb_user where username='$usr'");
-	header ("location:seeAdmin.php");
+		
+		if ($role=="Administrator") {
+			header ("location:seeAdmin.php");
+		}
+		else if ($role=="Dosen") {
+			header ("location:seeLecturer.php");
+		}
+		else if ($role=="Mahasiswa") {
+			header ("location:seeStudent.php");
+		}
 ?>

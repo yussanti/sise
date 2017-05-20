@@ -19,7 +19,6 @@ if(!isset($_SESSION['username'])){
 $idmk =$_GET['idmk'];
 $idtest =$_GET['idtest'];
 $username =$_SESSION['username'];
-echo $username;
 $nilaitotal=0;
     $i=1;
     $query2= mysql_query("SELECT * FROM tb_nilai where idmk='$idmk' and idtest='$idtest' and username='$username'");
