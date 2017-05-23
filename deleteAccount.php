@@ -17,7 +17,7 @@ if($_SESSION['level']!="Administrator"){
 <?php
 
 	$usr=$_GET['usr'];
-	 $role = @$_POST['q'];
+	$role = @$_POST['q'];
 	
 	mysql_query("DELETE from tb_user where username='$usr'");
 		
