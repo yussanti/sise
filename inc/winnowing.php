@@ -180,7 +180,7 @@ class winnowing {
         $cosine = $count_intersect_fingers / ($pow1*$pow2);
 
 
-        return $cosine;
+        return $dice;
 
 
     }

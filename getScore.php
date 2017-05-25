@@ -89,9 +89,9 @@ $tambahtext = @$_POST['submit'];
             while($row = mysql_fetch_assoc($query)) // display all rows from query
             {
             $output1=$row["jawabankunci"];
-            $n=$row["ngram"];
-            $window=$row["window"];
-            $prima=$row["prima"];
+            $n=3;
+            $window=5;
+            $prima=2;
 
                     //checking synonym
                     $query = mysql_query("SELECT * FROM sinonim");
@@ -103,7 +103,6 @@ $tambahtext = @$_POST['submit'];
                         }
 
                     
-                     $kalimat1   = $stemmer->stem($output1);
 
                     //checking stopword
                      $query = mysql_query("SELECT * FROM stopword");
@@ -119,6 +118,7 @@ $tambahtext = @$_POST['submit'];
                         }
                     $output1 = implode(" ", $pieces);
                     
+                    $kalimat1   = $stemmer->stem($output1);
 
                  
 
@@ -131,9 +131,8 @@ $tambahtext = @$_POST['submit'];
                    {
                     $output2=$row2["jawaban"];
                     $idjawaban=$row2["idjawaban"];
-                     //stemming
-                    $kalimat2   = $stemmer->stem($output2);
                     
+
                     //checking synonym
                     $query = mysql_query("SELECT * FROM sinonim");
                     while ($row3 = @mysql_fetch_array($query)) {
@@ -158,7 +157,9 @@ $tambahtext = @$_POST['submit'];
                         }
                     $output2 = implode(" ", $pieces);
 
-                   
+                     //stemming
+                    $kalimat2   = $stemmer->stem($output2);
+                    
 
                     
                     $w = new winnowing($kalimat1, $kalimat2);
