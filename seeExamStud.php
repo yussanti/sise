@@ -34,8 +34,6 @@ if($_SESSION['level']!="Mahasiswa"){
                     <tr>
                         <th style="width: 120px;" class="text-center">ID Courses</th>
                         <th class="text-center">Exam Name</th>
-                        <th class="text-center">Duration</th>
-                        <th class="text-center">Status</th>
                         <th class="text-center" style="width: 75px;">Details</th>
                     </tr>
                 </thead>
@@ -52,8 +50,6 @@ if($_SESSION['level']!="Mahasiswa"){
                         <td><center><?php echo $baris1['idmk'] ;?></center></td>
                         
                         <td><center><?php echo $baris1['exam'] ;?></center></td>
-                        <td><center><?php echo $baris1['duration'] ;?></center></td>
-                        <td><center><?php echo $baris1['status'] ;?></center></td>
                         
                         <td class="text-center">
                              <a href="takeExamStud.php?idmk=<?php echo $baris1['idmk'];?>&idtest=<?php echo $baris1['idtest'];?>" data-toggle="tooltip" title="Edit Courses"><button type="submit" name="take" id="submit"  value="take exam" class="btn btn-effect-ripple btn-primary">take exam</button></a>

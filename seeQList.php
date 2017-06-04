@@ -43,8 +43,10 @@ if($_SESSION['level']!="Dosen"){
                    <tr>
 
                         <?php 
+                    $idmk = $_GET['idmk'];
+                    $idtest = $_GET['idtest'];
                     $name = $_SESSION['username']; 
-                    $query1 = mysql_query("SELECT * FROM tb_soaljawab ");
+                    $query1 = mysql_query("SELECT * FROM tb_soaljawab WHERE idtest='$idtest'");
     
                     $jumlah = mysql_num_rows($query1);
                     while($baris1=mysql_fetch_array($query1)) {

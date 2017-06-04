@@ -88,62 +88,7 @@ var CompCalendar = function() {
                     $(this).remove();
                 },
                 events: [
-                    {
-                        title: 'Cinema',
-                        start: new Date(y, m, 2),
-                        allDay: true,
-                        color: '#de815c'
-                    },
-                    {
-                        title: 'Live Conference',
-                        start: new Date(y, m, 5)
-                    },
-                    {
-                        title: 'Secret Project',
-                        start: new Date(y, m, 4),
-                        end: new Date(y, m, 4),
-                        color: '#555555'
-                    },
-                    {
-                        id: 999,
-                        title: 'Work (repeated)',
-                        start: new Date(y, m, d + 3, 8, 0),
-                        allDay: false,
-                        color: '#555555'
-                    },
-                    {
-                        id: 999,
-                        title: 'Work (repeated)',
-                        start: new Date(y, m, d + 5, 8, 0),
-                        allDay: false,
-                        color: '#555555'
-                    },
-                    {
-                        title: 'Work meeting',
-                        start: new Date(y, m, d, 10, 00),
-                        allDay: false,
-                        color: '#de815c'
-                    },
-                    {
-                        title: 'Bootstrap Tutorial',
-                        start: new Date(y, m, d + 4, 12, 15),
-                        end: new Date(y, m, d + 4, 18, 15),
-                        allDay: false,
-                        color: '#deb25c'
-                    },
-                    {
-                        title: 'Admin Template',
-                        start: new Date(y, m, 24),
-                        end: new Date(y, m, 27),
-                        allDay: true,
-                        color: '#afde5c'
-                    },
-                    {
-                        title: 'Trip to Asia',
-                        start: new Date(y, m, d + 8, 21, 0),
-                        end: new Date(y, m, d + 8, 23, 30),
-                        allDay: false
-                    },
+                    
                     {
                         title: 'Follow me on Twitter',
                         start: new Date(y, m, 23),

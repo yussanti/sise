@@ -64,8 +64,8 @@ if($_SESSION['level']!="Mahasiswa"){
     <!-- END Grid Content Block --> 
 
 <?php
-    $jawaban=$_POST["jawaban"];
-    $idsoal=$_POST["idsoal"];
+    @$jawaban=$_POST["jawaban"];
+    @$idsoal=$_POST["idsoal"];
          
   
     $nama=$_SESSION['username'];
