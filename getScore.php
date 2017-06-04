@@ -81,7 +81,7 @@ $tambahtext = @$_POST['submit'];
         
         {
         $idsoal = $idsj[$x];
-        $query = mysql_query("SELECT  idsoal,soal,jawabankunci, ngram, window, prima from tb_soaljawab where idsoal = '$idsoal' AND idmk='$idmk' AND idtest='$idtest'");
+        $query = mysql_query("SELECT  idsoal,soal,jawabankunci from tb_soaljawab where idsoal = '$idsoal' AND idmk='$idmk' AND idtest='$idtest'");
         $exists = mysql_num_rows($query);
        
             if($exists > 0) //IF there are no returning rows or no existing username
@@ -104,19 +104,7 @@ $tambahtext = @$_POST['submit'];
 
                     
 
-                    //checking stopword
-                     $query = mysql_query("SELECT * FROM stopword");
-                    while ($row = @mysql_fetch_array($query)) {
-                        $stopword[] = trim($row['stopword']);
-                        }
-                        $pieces = explode(" ", $output1);
-                        $jml = count($pieces) - 1;
-                        for ($i = 0; $i <= $jml; $i++) {
-                            if (in_array($pieces[$i], $stopword)) {
-                            unset($pieces[$i]);
-                            }
-                        }
-                    $output1 = implode(" ", $pieces);
+                  
                     
                     $kalimat1   = $stemmer->stem($output1);
 
@@ -141,19 +129,7 @@ $tambahtext = @$_POST['submit'];
                         $output2=str_replace("$kata1", "$kata2", "$output2");
                         }
                         
-                    //stopword removal
-                    $query = mysql_query("SELECT * FROM stopword");
-                    while ($row = @mysql_fetch_array($query)) {
-                        $stopword[] = trim($row['stopword']);
-                        }
-                        $pieces = explode(" ", $output2);
-                        $jml = count($pieces) - 1;
-                        for ($i = 0; $i <= $jml; $i++) {
-                            if (in_array($pieces[$i], $stopword)) {
-                            unset($pieces[$i]);
-                            }
-                        }
-                    $output2 = implode(" ", $pieces);
+                   
 
                      //stemming
                     $kalimat2   = $stemmer->stem($output2);

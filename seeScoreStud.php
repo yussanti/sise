@@ -32,8 +32,8 @@ if($_SESSION['level']!="Mahasiswa"){
             <table id="example-datatable" class="table table-striped table-bordered table-vcenter">
                 <thead>
                     <tr>
-                        <th style="width: 120px;" class="text-center">idmk</th>
-                        <th class="text-center">idtest</th>
+                        <th class="text-center">Course</th>
+                        <th class="text-center">Exam</th>
                         <th class="text-center">Nilai</th>
                     </tr>
                 </thead>
@@ -42,15 +42,15 @@ if($_SESSION['level']!="Mahasiswa"){
 
                         <?php 
                     $username = $_SESSION['username'];
-                    $query1 = mysql_query("SELECT * FROM tb_totalnilai where username='$username'");
+                    $query1 = mysql_query("SELECT * FROM tb_totalnilai INNER JOIN tb_exam ON tb_exam.idtest = tb_totalnilai.idtest INNER JOIN tb_courses ON tb_courses.idmk = tb_exam.idmk where mahasiswa='$username'");
     
                     $jumlah = mysql_num_rows($query1);
                     while($baris1=mysql_fetch_array($query1)) {
                     ?> 
                     <tr>
-                        <td><center><?php echo $baris1['idmk'] ;?></center></td>
-                        
-                        <td><center><?php echo $baris1['idtest'] ;?></center></td>
+                        <td><center><?php echo $baris1['courses'] ;?></center></td>
+                         <td><center><?php echo $baris1['exam'] ;?></center></td>
+                       
                         <td><center><?php echo $baris1['total_nilai'] ;?></center></td>
                     </tr>
                     <?php } ?>

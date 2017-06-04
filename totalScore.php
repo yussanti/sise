@@ -31,7 +31,7 @@ $nilaitotal=0;
         $nilaitotal=$nilaitotal/$jumlah2; //hasil total nilai yang didapat dari penjumlahan semua nilai dari ujian, dibagi dengan jumlah soal
         $nilaitotal=round($nilaitotal, 2);
         
-        $query3= mysql_query("insert into tb_totalnilai (idmk,idtest,username,total_nilai) values ('$idmk','$idtest','$username', '$nilaitotal') ");   
+        $query3= mysql_query("insert into tb_totalnilai (idmk,idtest,mahasiswa,total_nilai) values ('$idmk','$idtest','$username', '$nilaitotal') ");   
 
 ?>
 
