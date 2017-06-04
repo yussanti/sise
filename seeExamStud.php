@@ -33,6 +33,9 @@ if($_SESSION['level']!="Mahasiswa"){
                 <thead>
                     <tr>
                         <th style="width: 120px;" class="text-center">ID Courses</th>
+                        <th class="text-center">Lecturer</th>
+                        <th class="text-center">Course</th>
+                        
                         <th class="text-center">Exam Name</th>
                         <th class="text-center" style="width: 75px;">Details</th>
                     </tr>
@@ -41,14 +44,25 @@ if($_SESSION['level']!="Mahasiswa"){
                    <tr>
 
                         <?php 
-                    $query1 = mysql_query("SELECT * FROM tb_exam");
+                        if (isset($idmk)) {
+                            $idmk = $_GET['idmk'];
+                            $username=$_SESSION['username'];
+                            $query1 = mysql_query("SELECT * FROM tb_exam INNER JOIN tb_courses ON tb_exam.idmk = tb_courses.idmk where idmk='$idmk'");
+                        } else {
+                            $username=$_SESSION['username'];
+                           $query1 = mysql_query("SELECT * FROM tb_exam INNER JOIN tb_courses ON tb_exam.idmk = tb_courses.idmk");
+                        }
+
+                   
     
                     $jumlah = mysql_num_rows($query1);
                     while($baris1=mysql_fetch_array($query1)) {
                     ?> 
                     <tr>
                         <td><center><?php echo $baris1['idmk'] ;?></center></td>
+                        <td><center><?php echo $baris1['username'] ;?></center></td> 
                         
+                        <td><center><?php echo $baris1['courses'] ;?></center></td> 
                         <td><center><?php echo $baris1['exam'] ;?></center></td>
                         
                         <td class="text-center">
