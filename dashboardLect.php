@@ -14,7 +14,9 @@ if(!isset($_SESSION['username'])){
 <?php include 'inc/configDosen.php'; $template['header_link'] = 'WELCOME'; ?>
 <?php include 'inc/template_start.php'; ?>
 <?php include 'inc/page_head.php'; ?>
-
+<?php
+$username=$_SESSION['username'];
+?>
 <!-- Page content -->
 <div id="page-content">
     <!-- First Row -->
@@ -49,7 +51,7 @@ if(!isset($_SESSION['username'])){
                     <h2 class="widget-heading h3 text-success">
                         <strong> <span data-toggle="counter" data-to="
                         <?php 
-                        $result = mysql_query("SELECT count(*) from tb_courses;");
+                        $result = mysql_query("SELECT count(*) from tb_courses where username='$username';");
                         $nama = mysql_result($result, 0);
                         echo $nama;?>"></span></strong>
                     </h2>

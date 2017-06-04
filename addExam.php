@@ -64,11 +64,10 @@ if($_SESSION['level']!="Dosen"){
     $idmk = @$_POST['idmk'];
     $examName = @$_POST['examName'];
     $password = @$_POST['password'];
-    $status = 'disable';
-    $tambahtext = @$_POST['submit'];
+   $tambahtext = @$_POST['submit'];
 
     if($tambahtext) {
-        mysqli_query($connection,"INSERT INTO tb_exam (idmk,idtest, exam, passexam, username, duration, status) values ('$idmk','', '$examName', '$password', '$username','', '$status')") or die(mysql_error($connection));
+        mysqli_query($connection,"INSERT INTO tb_exam (idmk,idtest, exam, username) values ('$idmk','', '$examName', '$username')") or die(mysql_error($connection));
       
     }
     

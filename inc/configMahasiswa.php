@@ -79,11 +79,7 @@ $primary_nav = array(
         'icon'  => 'fa fa-share-alt',
         'url'   => 'seeScoreStud.php'
     ),
-    array(
-        'name'  => 'Assignments',
-        'icon'  => 'gi gi-picture',
-        'url'   => 'page_app_media.php'
-    ),
+
     array(
         'url'   => 'separator',
     ),

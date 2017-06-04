@@ -5,12 +5,11 @@ include 'inc/connection.php'
 <?php
 //cek apakah user sudah login
 if(!isset($_SESSION['username'])){
-    header("Location: index.php");//
-}
-
-//cek level user
-if($_SESSION['level']!="Administrator"){
-    header("Location: index.php");
+    die("Anda belum login");//
+} else if(!isset($_SESSION['username'])){
+    die("Anda belum login");
+} else if(!isset($_SESSION['username'])){
+    die("Anda belum login");
 }?>
 <?php include 'inc/configAdmin.php'; $template['header_link'] = 'WELCOME'; ?>
 <?php include 'inc/template_start.php'; ?>
@@ -18,7 +17,6 @@ if($_SESSION['level']!="Administrator"){
 
 <!-- Page content -->
 <div id="page-content">
-     <div class="block">
     <!-- First Row -->
     <div class="row">
         <!-- Simple Stats Widgets -->
@@ -78,10 +76,10 @@ if($_SESSION['level']!="Administrator"){
         <div class="col-sm-6 col-lg-3">
             <a href="javascript:void(0)" class="widget">
                 <div class="widget-content widget-content-mini text-right clearfix">
-                    <div class="widget-icon pull-left themed-background-danger">
-                        <i class="gi gi-wallet text-light-op"></i>
+                    <div class="widget-icon pull-left themed-background-warning">
+                        <i class="gi gi-briefcase text-light-op"></i>
                     </div>
-                    <h2 class="widget-heading h3 text-danger">
+                    <h2 class="widget-heading h3 text-warning">
                         <strong> <span data-toggle="counter" data-to="<?php 
                         $result = mysql_query("SELECT count(*) from tb_user where level='Dosen';");
                         $nama = mysql_result($result, 0);
@@ -91,12 +89,9 @@ if($_SESSION['level']!="Administrator"){
                 </div>
             </a>
         </div>
-        <!-- END Simple Stats Widgets -->
     </div>
     <!-- END First Row -->
-</div>
-
-<!-- Text Block -->
+    <!-- Text Block -->
     <div class="block">
         <!-- Text Title -->
         <div class="block-title">
@@ -115,7 +110,7 @@ if($_SESSION['level']!="Administrator"){
         <!-- END Paragraphs and Links -->
     </div>
     <!-- END Text Block -->
-    
+   
 </div>
 <!-- END Page Content -->
 
@@ -123,9 +118,7 @@ if($_SESSION['level']!="Administrator"){
 <?php include 'inc/template_scripts.php'; ?>
 
 <!-- Load and execute javascript code used only in this page -->
-<!-- Load and execute javascript code used only in this page -->
-<script src="js/pages/compCalendar.js"></script>
-<script>$(function(){ CompCalendar.init(); });</script>
-
+<script src="js/pages/readyDashboard.js"></script>
+<script>$(function(){ ReadyDashboard.init(); });</script>
 
 <?php include 'inc/template_end.php'; ?>

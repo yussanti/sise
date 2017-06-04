@@ -15,7 +15,9 @@ if($_SESSION['level']!="Mahasiswa"){
 <?php include 'inc/configMahasiswa.php'; $template['header_link'] = 'WELCOME'; ?>
 <?php include 'inc/template_start.php'; ?>
 <?php include 'inc/page_head.php'; ?>
-
+<?php 
+$username = $_SESSION['username'];
+?>
 <!-- Page content -->
 <div id="page-content">
     <!-- First Row -->

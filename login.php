@@ -6,13 +6,11 @@ if(isset($_POST['submit']))
 {               
     $username   = $_POST['username'];
     $password   = $_POST['password'];
-    echo "mudah2a ";
                     
     $query = mysqli_query($connection, "SELECT * FROM tb_user WHERE username='$username' AND password='$password'");
     if(mysqli_num_rows($query) == 0)
     {
         $error = "Username or Password is invalid";
-        echo "apesi";
     }
     else
     {
@@ -37,7 +35,7 @@ if(isset($_POST['submit']))
         else
         {
             $error = "Failed Login";
-            echo "hai";
+          
         }
     }
 }           

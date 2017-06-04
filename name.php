@@ -14,9 +14,6 @@ if(!isset($_SESSION['username'])){
        <?php  
   $idmk = @$_GET['idmk'];
  $idtest = @$_GET['idtest'];
- $ngram = 3;
- $window = 4;
- $prima = 3;
  
   $number = count($_POST["soal"]);  
   $tambahtext = @$_POST['submit'];
@@ -29,7 +26,7 @@ if(!isset($_SESSION['username'])){
 
                 $soal = mysqli_real_escape_string($connection, $_POST["soal"][$i]);
                 $jawabankunci = mysqli_real_escape_string($connection, $_POST["jawabankunci"][$i]);
-                $sql = "INSERT INTO tb_soaljawab (idmk, idtest, idsoal, soal, jawabankunci, ngram, window, prima) VALUES('$idmk','$idtest','','$soal','$jawabankunci','$ngram','$window','prima')";  
+                $sql = "INSERT INTO tb_soaljawab (idmk, idtest, idsoal, soal, jawabankunci) VALUES('$idmk','$idtest','','$soal','$jawabankunci')";  
                 mysqli_query($connection, $sql); 
            }  
 

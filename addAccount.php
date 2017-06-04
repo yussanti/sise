@@ -174,6 +174,37 @@ if($_SESSION['level']!="Administrator"){
     $tambahtext = @$_POST['submit'];
     if($tambahtext) {
         mysqli_query($connection,"INSERT INTO tb_user (username, email, password, name, npm, major, level, img) values ('$username', '$email','$password','$nama','$npm','$major','$role','')") or die(mysql_error($connection));
+        if($role == "Administrator") {
+            ?>
+              <script type="text/javascript">
+                window.location="seeAdmin.php";
+
+            </script>
+            <?php
+        } else if($role == "Dosen") {
+            ?>
+              <script type="text/javascript">
+                window.location="seeLecturer.php";
+
+            </script>
+            <?php
+        }  else if($role == "Mahasiswa") {
+            ?>
+              <script type="text/javascript">
+                window.location="seeStudent.php";
+
+            </script>
+            <?php
+        } 
+        else {
+            ?>
+             <script type="text/javascript">
+                window.location="seeAdmin.php";
+
+            </script>
+            <?php
+
+        }
        
     }
     

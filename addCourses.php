@@ -60,7 +60,14 @@ if($_SESSION['level']!="Administrator"){
     $tambahtext = @$_POST['submit'];
     if($tambahtext) {
         mysqli_query($connection,"INSERT INTO tb_courses (idmk, courses, username) values ('', '$course', '$usernameLect')") or die(mysql_error($connection));
+        ?>
+            <script type="text/javascript">
+                window.location="seeCourses.php";
+
+            </script>
+            <?php
       
+        }
     }
     
 ?>
