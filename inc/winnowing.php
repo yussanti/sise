@@ -6,7 +6,7 @@ class winnowing {
     //input properties
     private $prime_number = 3;
     private $n_gram_value = 2;
-    private $n_window_value = 4;    
+    private $n_window_value = 5;    
     
     //output properties
     private $arr_n_gram1;
@@ -180,7 +180,7 @@ class winnowing {
         $cosine = $count_intersect_fingers / ($pow1*$pow2);
 
 
-        return $dice;
+        return $cosine;
 
 
     }

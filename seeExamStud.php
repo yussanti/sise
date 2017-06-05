@@ -66,7 +66,7 @@ if($_SESSION['level']!="Mahasiswa"){
                         <td><center><?php echo $baris1['exam'] ;?></center></td>
                         
                         <td class="text-center">
-                             <a href="takeExamStud.php?idmk=<?php echo $baris1['idmk'];?>&idtest=<?php echo $baris1['idtest'];?>" data-toggle="tooltip" title="Edit Courses"><button type="submit" name="take" id="submit"  value="take exam" class="btn btn-effect-ripple btn-primary">take exam</button></a>
+                             <a href="takeExamStud.php?idmk=<?php echo $baris1['idmk'];?>&idtest=<?php echo $baris1['idtest'];?>" data-toggle="tooltip" title="Take Exam"><button type="submit" name="take" id="submit"  value="take exam" class="btn btn-effect-ripple btn-primary">take exam</button></a>
                         </td>
                     </tr>
                     <?php } ?>

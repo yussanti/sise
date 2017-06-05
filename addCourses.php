@@ -68,7 +68,7 @@ if($_SESSION['level']!="Administrator"){
             <?php
       
         }
-    }
+    
     
 ?>
         

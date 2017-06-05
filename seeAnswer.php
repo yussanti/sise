@@ -35,7 +35,7 @@ if($_SESSION['level']!="Dosen"){
                 <thead>
                   <?php 
                     $usr = $_GET['usr'];
-                    $query2 = mysql_query("SELECT * FROM tb_totalnilai where username='$usr'");
+                    $query2 = mysql_query("SELECT * FROM tb_totalnilai where mahasiswa='$usr'");
                      while($baris2=mysql_fetch_array($query2)) {
                     ?>
                  <div class="col-sm-6 col-lg-3">

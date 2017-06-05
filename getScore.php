@@ -102,11 +102,23 @@ $tambahtext = @$_POST['submit'];
                         $output1=str_replace("$kata1", "$kata2", "$output1");
                         }
 
-                    
+                     $kalimat1   = $stemmer->stem($output1);
 
-                  
+
+                    //checking stopword
+                     $query = mysql_query("SELECT * FROM stopword");
+                    while ($row = @mysql_fetch_array($query)) {
+                        $stopword[] = trim($row['stopword']);
+                        }
+                        $pieces = explode(" ", $output1);
+                        $jml = count($pieces) - 1;
+                        for ($i = 0; $i <= $jml; $i++) {
+                            if (in_array($pieces[$i], $stopword)) {
+                            unset($pieces[$i]);
+                            }
+                        }
+                    $output1 = implode(" ", $pieces);
                     
-                    $kalimat1   = $stemmer->stem($output1);
 
                  
 
@@ -119,6 +131,7 @@ $tambahtext = @$_POST['submit'];
                    {
                     $output2=$row2["jawaban"];
                     $idjawaban=$row2["idjawaban"];
+                    
                     //checking synonym
                     $query = mysql_query("SELECT * FROM sinonim");
                     while ($row3 = @mysql_fetch_array($query)) {
@@ -128,12 +141,31 @@ $tambahtext = @$_POST['submit'];
                         $output2=strtolower("$output2");
                         $output2=str_replace("$kata1", "$kata2", "$output2");
                         }
-                        
-                   
 
+
+                    
                      //stemming
                     $kalimat2   = $stemmer->stem($output2);
+
+
+                        //stopword removal
+                    $query = mysql_query("SELECT * FROM stopword");
+                    while ($row = @mysql_fetch_array($query)) {
+                        $stopword[] = trim($row['stopword']);
+                        }
+                        $pieces = explode(" ", $output2);
+                        $jml = count($pieces) - 1;
+                        for ($i = 0; $i <= $jml; $i++) {
+                            if (in_array($pieces[$i], $stopword)) {
+                            unset($pieces[$i]);
+                            }
+                        }
+                    $output2 = implode(" ", $pieces);
+
                     
+                   if (empty($kalimat2)) {
+                    $nilai = 0;
+                   } else {
 
                     
                     $w = new winnowing($kalimat1, $kalimat2);
@@ -143,10 +175,18 @@ $tambahtext = @$_POST['submit'];
 
                     $w->process();
                     $nilai = $w->GetJaccardCoefficient();
-                    
+                    }
+
+
+                    if ($nilai >= 100 ) {
+                        $nilai = 100;
+                    } else {
+                        $nilai = $nilai;
+                    }
                     $query4 = mysql_query("insert into tb_nilai (idmk, idtest, username, idsoal, idjawaban, nilai) values ('$idmk','$idtest','$username','$idsoal','$idjawaban','$nilai')");
                     
-                    }?>
+                    }
+                    ?>
                     <script type="text/javascript">
                      window.location="totalScore.php?idmk=<?php echo $idmk;?>&idtest=<?php echo $idtest;?>";
 

@@ -45,7 +45,7 @@ if($_SESSION['level']!="Administrator"){
 
                         <?php    
                         $idmk=$_GET['idmk'];
-                        $query1 = mysql_query("SELECT tb_peserta.idmk, tb_courses.courses, tb_peserta.username FROM tb_peserta INNER JOIN tb_courses ON tb_peserta.idmk=tb_peserta.idmk WHERE tb_peserta.idmk='$idmk'");
+                        $query1 = mysql_query("SELECT tb_peserta.idmk, tb_courses.courses, tb_peserta.username FROM tb_peserta INNER JOIN tb_courses ON tb_peserta.idmk=tb_courses.idmk WHERE tb_peserta.idmk='$idmk'");
     
                      $jumlah = mysql_num_rows($query1);
                     while($baris1=mysql_fetch_array($query1)) {

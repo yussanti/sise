@@ -86,7 +86,7 @@ $primary_nav = array(
     array(
         'name'  => 'Help',
         'icon'  => 'gi gi-shopping_cart',
-        'url'   => 'page_app_estore.php'
+        'url'   => 'faqAdm.php'
     )
     
 

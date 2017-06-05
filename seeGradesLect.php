@@ -50,9 +50,9 @@ if($_SESSION['level']!="Dosen"){
                             $idmk=$_GET['idmk'];
                             $idtest=$_GET['idtest'];
                             $username=$_SESSION['username'];
-                            $query1 = mysql_query("SELECT * FROM tb_courses JOIN tb_exam ON tb_courses.idmk=tb_exam.idmk JOIN tb_totalnilai ON tb_courses.idmk = tb_totalnilai.idmk WHERE tb_totalnilai.idmk ='$idmk' AND tb_totalnilai.idtest = '$idtest'");
+                            $query1 = mysql_query("SELECT tb_courses.courses, tb_exam.exam, tb_totalnilai.mahasiswa, tb_totalnilai.total_nilai FROM tb_totalnilai NATURAL JOIN tb_exam NATURAL JOIN tb_courses  WHERE tb_totalnilai.idmk ='$idmk' AND tb_totalnilai.idtest = '$idtest'");
                         } else {
-                            $query1 = mysql_query("SELECT * FROM tb_courses JOIN tb_exam ON tb_courses.idmk=tb_exam.idmk JOIN tb_totalnilai ON tb_courses.idmk = tb_totalnilai.idmk");
+                            $query1 = mysql_query("SELECT tb_courses.courses, tb_exam.exam, tb_totalnilai.mahasiswa, tb_totalnilai.total_nilai FROM tb_totalnilai NATURAL JOIN tb_exam NATURAL JOIN tb_courses ");
                         }
                         
     
@@ -64,11 +64,11 @@ if($_SESSION['level']!="Dosen"){
                         <td><center><?php echo $baris1['courses'] ;?></center></td>
                         <td><center><?php echo $baris1['exam'] ;?></center></td>
                         
-                        <td><center><?php echo $baris1['username'] ;?></center></td>
+                        <td><center><?php echo $baris1['mahasiswa'] ;?></center></td>
                          <td><center><?php echo $baris1['total_nilai'] ;?></center></td>
                        
                         
-                            <td> <center><a href="seeAnswer.php?usr=<?php echo $baris1['username']; ?>"><button type="submit" class="btn btn-effect-ripple btn-primary" name="submit" id="submit">Review</button></a></center></td>
+                            <td> <center><a href="seeAnswer.php?usr=<?php echo $baris1['mahasiswa']; ?>"><button type="submit" class="btn btn-effect-ripple btn-primary" name="submit" id="submit">Review</button></a></center></td>
                         </td>
                     </tr>
 
